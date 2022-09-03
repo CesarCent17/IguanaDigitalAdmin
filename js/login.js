@@ -1,30 +1,26 @@
-async function login(){
-    // alert("Funcion Login")
- 
+document.getElementById("Login").addEventListener("click", LoginAPI);
+
+async function LoginAPI(){
+    alert("Funcion LoginAPI")
+    
+    const options = {method: 'GET'};
     let email = document.getElementById('EmailTxt').value;
     let password = document.getElementById('PasswordTxt').value;
     if(email == '' || password == ''){
         alert("Error debe llenar los campos")
         return;
     }
-    // alert(email);
-    // alert(password);
-
-    let url = 'http://10.35.3.16:9898/api/es/usuario/v1/'+email+'/'+password
-    alert(url);
-    const request = await fetch(url, {
-        method: 'GET',
-        headers:{
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-    });
-    usuario = await request.json();
-    let mensaje = "El usuario "+usuario.nombreCompleto+" ha iniciado sesion!"
-    alert(mensaje);
-    if(request.ok){
-        window.location.href = 'usuarios.html'
-    } else if(request.status == 500) {
-        alert("Las credenciales son incorrectas");
-    }
+    let endpoint = 'http://localhost:9898/api/es/usuario/v1/'+email+'/'+password
+    alert(endpoint)
+    await fetch(endpoint, options)
+    .then(response => response.json())
+    .then(response =>{
+        // alert(response)
+        obj = response;
+        let mensaje = "El usuario "+obj.nombreCompleto+" ha iniciado sesion!"
+        alert(mensaje);
+        window.location.href = 'html/usuarios.html'
+    })
+    .catch(err => console.error(err));
+    alert("fin de promesa")
 }
