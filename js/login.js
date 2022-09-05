@@ -1,26 +1,33 @@
-document.getElementById("Login").addEventListener("click", LoginAPI);
+document.getElementById("Login").addEventListener("click", loginAPI);
 
-async function LoginAPI(){
-    alert("Funcion LoginAPI")
-    
-    const options = {method: 'GET'};
-    let email = document.getElementById('EmailTxt').value;
-    let password = document.getElementById('PasswordTxt').value;
+async function loginAPI(){
+
+    const email = document.getElementById('EmailTxt').value;
+    const password = document.getElementById('PasswordTxt').value;
+    const divError = document.getElementById('divError')
     if(email == '' || password == ''){
-        alert("Error debe llenar los campos")
+        divError.setAttribute("class", "alert alert-danger")
+        divError.setAttribute("role", "alert")
+        divError.innerHTML = "Error debe llenar los campos"
         return;
     }
-    let endpoint = 'http://localhost:9898/api/es/usuario/v1/'+email+'/'+password
-    alert(endpoint)
-    await fetch(endpoint, options)
-    .then(response => response.json())
-    .then(response =>{
-        // alert(response)
-        obj = response;
-        let mensaje = "El usuario "+obj.nombreCompleto+" ha iniciado sesion!"
-        alert(mensaje);
+
+    const endpoint = 'https://appgizlorecords.herokuapp.com/api/es/usuario/v1/'+email+'/'+password
+    const options = {method: 'GET'};
+
+
+    const res = await fetch(endpoint, options);
+    const data = await res.json();
+
+
+    if (res.status !== 200){
+        divError.setAttribute("class", "alert alert-danger")
+        divError.setAttribute("role", "alert")
+        divError.innerHTML = "Error credenciales incorrectas, status: "+res.status
+        return;
+    } else if(res.status == 200){
+        alert("El usuario "+data.nombreCompleto+" ha iniciado sesion correctamente!")
         window.location.href = 'html/usuarios.html'
-    })
-    .catch(err => console.error(err));
-    alert("fin de promesa")
+    }
+        
 }
