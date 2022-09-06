@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <title>Actualizar</title>
+</head>
+
+<body>
+    <span id="error"></span>
+   
+    <form>
+        <h1>Actualizar</h1>
+        <!-- ID -->
+         <label for="idUsuario">Id</label>
+         <input type="text" id="idUsuarioTxt" name="idUsuario" value="1c7dc659-a8e3-4212-a88c-62b40b27f5a6" readonly/><br>
+
+        <!-- Nombres Completos -->
+        <label for="nombreCompleto">Nombres</label>
+        <input type="text" id="nombreCompletoTxt" name="nombreCompleto"/><br>
+
+        <!-- Email -->
+        <label for="Email">Email</label>
+        <input type="email" id="EmailTxt" name="Email"/><br>
+
+        <!-- Estado -->
+        <select name="estadoOpciones" id="estadoOpciones">
+
+            <option>ACTIVO</option>
+            <option>DESACTIVO</option>      
+        </select>
+
+        <!-- Password -->
+        <label for="Password">Password</label>
+        <input type="password" id="PasswordTxt" name="Password"/><br>
+
+        <!-- Button Login -->
+        <input type="submit" id="Login" name="Login" value="Actualizar Usuario" onclick="updateUser()"/>
+    </form>
+    
+
+</body>
+<script src="js/actualizar.js"></script>
+</html>
