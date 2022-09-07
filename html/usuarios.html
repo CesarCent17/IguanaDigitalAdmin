@@ -1,75 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="..\css\bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="http://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 
     <title>Usuarios</title>
 </head>
+
 <body>
     <nav class="navbar bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand">Bienvenido a IguanaDigitalAdmin</a>
-          <form class="d-flex" role="search">
-            <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
-            <button class="btn btn-outline-success" type="button">Crear Usuario</button>
-          </form>
-        </div>
-      </nav>
-    <!-- <button type="button" class="btn btn-success">Success</button> -->
-
-    <!-- Modal Crear Usuario -->
-
-    <!-- Modal Buttons -->
-    <!-- <button class="modal-open" data-modal="modalCrearUsuario">Modal Crear Usuario</button>
-    <button class="modal-open" data-modal="modalEditarUsuario">Modal Editar Usuario</button>
-    <button class="modal-open" data-modal="modalEliminarUsuario">Modal Eliminar Usuario</button> -->
-    
-    <!-- Modals -->
-    <!-- <div class="modals" id="modalCrearUsuario">
-        <div class="modal-content">
-            <div class="modal-header">
-                Modal 1
-                <button class="icon">
-                    <i class="material-icons">close</i>
+            <a class="navbar-brand">Bienvenido a IguanaDigitalAdmin</a>
+            <form class="d-flex" role="search">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                    data-bs-target="#btnCrearUsuario">
+                    Crear Usuario
                 </button>
-            </div>
-            <div class="modal-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum eum, dolorem iusto architecto necessitatibus mollitia cupiditate, autem sit doloremque maxime quod rem incidunt, voluptas ratione nesciunt dolorum ipsam beatae reiciendis!</div>
-            <div class="modal-footer">
-                <button class="link modal-close">Close Modal</button>
+            </form>
+        </div>
+    </nav>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="btnCrearUsuario" tabindex="-1" aria-labelledby="crearUsuarioModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="crearUsuarioModalLabel">Nuevo Usuario</h5>
+                    
+                </div>
+                <div class="modal-body">
+                    <form class="col-9 mx-auto m-5">
+                          <div class="form-outline mb-4">
+                            <label class="form-label" for="NombreTxt">Nombre Completo</label>
+                            <input type="text" id="NombreTxt" class="form-control" />
+                          </div>
+                          <br>
+                          <div class="form-outline mb-4">
+                            <label class="form-label" for="EstadoTxt">Estado</label>
+                            <input type="text" id="EstadoTxt" class="form-control" value="ACTIVO" readonly/>
+                          </div>
+                        <br>
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="EmailTxt">Email</label>
+                          <input type="email" id="EmailTxt" class="form-control" />
+                        </div>
+                      <br>
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="PasswordTxt">Password</label>
+                          <input type="password" id="PasswordTxt" class="form-control" />
+                        </div>
+                        <br>
+                        <!-- Submit button -->
+                        <button type="button" id="crearUsuario" class="btn btn-primary btn-block mb-4" onclick="crearUsuari()">Crear Usuario</button>
+                      </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                </div>
             </div>
         </div>
-    </div> -->
+    </div>
+   
 
     <div class="col-9 px-5">
         <div class="table-responsive py-2">
             <table id="usuarios" class="table table-striped table-hover">
                 <thead>
                     <tr>
-                    <!-- <th scope="col">#</th> -->
-                    <th scope="col">Id</th>
-                    <th scope="col">Nombre completo</th>
-                    <th scope="col">Estado</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Contrasena</th>
-                    <th scope="col">Acciones</th>
+                        <!-- <th scope="col">#</th> -->
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre completo</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Contrasena</th>
+                        <th scope="col">Acciones</th>
 
 
                     </tr>
                 </thead>
-                <tbody class="table table-striped">      
+                <tbody class="table table-striped">
                 </tbody>
             </table>
         </div>
     </div>
-<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<!-- <script src="http://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script> -->
-<script src="..\js\usuarios.js"></script>
-<script src="..\js\eliminar.js"></script>
-<script src="..\js\actualizar.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="http://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script> -->
+    <script src="..\js\usuarios.js"></script>
+    <script src="..\js\eliminar.js"></script>
+    <script src="..\js\actualizar.js"></script>
+    <script src="..\js\crearUsuario.js"></script>
+
 
 </body>
+
 </html>
