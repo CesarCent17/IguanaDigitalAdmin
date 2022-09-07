@@ -17,7 +17,7 @@
         <div class="container-fluid">
             <a class="navbar-brand">Bienvenido a IguanaDigitalAdmin</a>
             <form class="d-flex" role="search">
-                <!-- Button trigger modal -->
+                <!-- Button trigger modal crear usuario -->
                 <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
                     data-bs-target="#btnCrearUsuario">
                     Crear Usuario
@@ -27,7 +27,7 @@
     </nav>
 
 
-    <!-- Modal -->
+    <!-- Modal Crear Usuario-->
     <div class="modal fade" id="btnCrearUsuario" tabindex="-1" aria-labelledby="crearUsuarioModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -61,6 +61,50 @@
                         <br>
                         <!-- Submit button -->
                         <button type="button" id="crearUsuario" class="btn btn-primary btn-block mb-4" onclick="crearUsuari()">Crear Usuario</button>
+                      </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Modal Actualizar-->
+    <div class="modal fade" id="btnActualizar" tabindex="-1" aria-labelledby="actualizarModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="actualizarModalLabel">Actualizar</h5>
+                    
+                </div>
+                <div class="modal-body">
+                    <form class="col-9 mx-auto m-5">
+                          <div class="form-outline mb-4">
+                            <label class="form-label" for="NombreTxtUpdate">Nombre Completo</label>
+                            <input type="text" id="NombreTxtUpdate" class="form-control" />
+                          </div>
+                          <br>
+                          <div class="form-outline mb-4">
+                            <label class="form-label" for="EstadoTxtUpdate">Estado</label>
+                            <input type="text" id="EstadoTxtUpdate" class="form-control" value="ACTIVO" readonly/>
+                          </div>
+                        <br>
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="EmailTxtUpdate">Email</label>
+                          <input type="email" id="EmailTxtUpdate" class="form-control" />
+                        </div>
+                      <br>
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="PasswordTxtUpdate">Password</label>
+                          <input type="password" id="PasswordTxtUpdate" class="form-control" />
+                        </div>
+                        <br>
+                        <!-- Submit button -->
+                        <button type="button" id="actualizar" class="btn btn-primary btn-block mb-4" onclick="getID()">Actualizar</button>
                       </form>
                 </div>
                 <div class="modal-footer">
